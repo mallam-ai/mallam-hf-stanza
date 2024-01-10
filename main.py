@@ -1,5 +1,8 @@
 from flask import Flask, request, jsonify
+import os
 import stanza
+
+os.makedirs(os.getenv("STANZA_RESOURCES_DIR", "/tmp/stanza_resources"), exist_ok=True)
 
 nlp = stanza.Pipeline("en", processors="tokenize")
 
